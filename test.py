@@ -404,7 +404,7 @@ spiralout(0.5)'''
 #shouldertap(0.2)
 #snakevertical(0.5)
 #snakehorizontal(0.5)
-pattern = -1
+'''pattern = -1
 interval = -1
 gapped = 0.05
 while (pattern != 0):
@@ -446,4 +446,4 @@ while (pattern != 0):
     elif pattern==16:
         spiralout(interval,gapped)
     pattern = int(input("type on pattern number (0 to stop)"))
-    interval =float(input("type in interval - 1 or 0.25"))
+    interval =float(input("type in interval - 1 or 0.25"))'''
