@@ -39,6 +39,14 @@ def vp_start_gui():
 
 w = None
 
+def disaleButton(butt):
+    butt.configure(state = "disabled")
+    
+def combine_funcs(*funcs):
+    def combined_func(*args, **kwargs):
+        for f in funcs:
+            f(*args, **kwargs)
+    return combined_func
     
 def create_Toplevel1(root, *args, **kwargs):
     '''Starting point when module is imported by another program.'''
@@ -370,7 +378,7 @@ class Toplevel1:
         self.Button1.configure(highlightcolor="black")
         self.Button1.configure(pady="0")
         self.Button1.configure(text='''Slow''')
-        self.Button1.configure(command = lambda: test.alternatetopbottom(longinterval, gap))
+        self.Button1.configure(command = lambda: combine_funcs(test.alternatetopbottom(longinterval, gap),disaleButton(self.Button1)))
 
         shiftvalbut = shiftval-0.02;
         
@@ -385,7 +393,7 @@ class Toplevel1:
         self.Button1_1.configure(highlightcolor="black")
         self.Button1_1.configure(pady="0")
         self.Button1_1.configure(text='''Fast''')
-        self.Button1_1.configure(command = lambda: test.alternatetopbottom(shortinterval, gap))
+        self.Button1_1.configure(command = lambda: combine_funcs(test.alternatetopbottom(shortinterval, gap),disaleButton(self.Button1_1)))
 
         self.Button1_2 = tk.Button(top)
         self.Button1_2.place(relx=0.167, rely=0.2-shiftvalbut*2, height=24, width=47)
@@ -398,7 +406,7 @@ class Toplevel1:
         self.Button1_2.configure(highlightcolor="black")
         self.Button1_2.configure(pady="0")
         self.Button1_2.configure(text='''Slow''')
-        self.Button1_2.configure(command = lambda: test.alternateleftright(longinterval, gap))
+        self.Button1_2.configure(command = lambda: combine_funcs(test.alternateleftright(longinterval, gap),disaleButton(self.Button1_2)))
 
         self.Button1_3 = tk.Button(top)
         self.Button1_3.place(relx=0.167, rely=0.267-shiftvalbut*3, height=24, width=47)
@@ -411,7 +419,7 @@ class Toplevel1:
         self.Button1_3.configure(highlightcolor="black")
         self.Button1_3.configure(pady="0")
         self.Button1_3.configure(text='''Fast''')
-        self.Button1_3.configure(command = lambda: test.alternateleftright(shortinterval, gap))
+        self.Button1_3.configure(command = lambda: combine_funcs(test.alternateleftright(shortinterval, gap),disaleButton(self.Button1_3)))
 
         self.Button1_4 = tk.Button(top)
         self.Button1_4.place(relx=0.167, rely=0.356-shiftvalbut*4, height=24, width=47)
@@ -424,7 +432,7 @@ class Toplevel1:
         self.Button1_4.configure(highlightcolor="black")
         self.Button1_4.configure(pady="0")
         self.Button1_4.configure(text='''Slow''')
-        self.Button1_4.configure(command = lambda: test.waveleft(longinterval, gap))
+        self.Button1_4.configure(command = lambda: combine_funcs(test.waveleft(longinterval, gap),disaleButton(self.Button1_4)))
 
         self.Button1_5 = tk.Button(top)
         self.Button1_5.place(relx=0.167, rely=0.422-shiftvalbut*5, height=24, width=47)
@@ -437,7 +445,7 @@ class Toplevel1:
         self.Button1_5.configure(highlightcolor="black")
         self.Button1_5.configure(pady="0")
         self.Button1_5.configure(text='''Fast''')
-        self.Button1_5.configure(command = lambda: test.waveleft(shortinterval, gap))
+        self.Button1_5.configure(command = lambda: combine_funcs(test.waveleft(shortinterval, gap),disaleButton(self.Button1_5)))
 
         self.Button1_6a = tk.Button(top)
         self.Button1_6a.place(relx=0.167, rely=0.511-shiftvalbut*6, height=24, width=47)
@@ -450,7 +458,7 @@ class Toplevel1:
         self.Button1_6a.configure(highlightcolor="black")
         self.Button1_6a.configure(pady="0")
         self.Button1_6a.configure(text='''Slow''')
-        self.Button1_6a.configure(command = lambda: test.waveright(longinterval, gap))
+        self.Button1_6a.configure(command = lambda: combine_funcs(test.waveright(longinterval, gap),disaleButton(self.Button1_6a)))
 
         self.Button1_7a = tk.Button(top)
         self.Button1_7a.place(relx=0.167, rely=0.578-shiftvalbut*7, height=24, width=47)
@@ -463,7 +471,7 @@ class Toplevel1:
         self.Button1_7a.configure(highlightcolor="black")
         self.Button1_7a.configure(pady="0")
         self.Button1_7a.configure(text='''Fast''')
-        self.Button1_7a.configure(command = lambda: test.waveright(shortinterval, gap))
+        self.Button1_7a.configure(command = lambda: combine_funcs( test.waveright(shortinterval, gap),disaleButton(self.Button1_7a)))
         
         self.Button1_6b = tk.Button(top)
         self.Button1_6b.place(relx=0.167, rely=0.667-shiftvalbut*8, height=24, width=47)
@@ -476,7 +484,7 @@ class Toplevel1:
         self.Button1_6b.configure(highlightcolor="black")
         self.Button1_6b.configure(pady="0")
         self.Button1_6b.configure(text='''Slow''')
-        self.Button1_6b.configure(command = lambda: test.wavedown(longinterval, gap))
+        self.Button1_6b.configure(command = lambda:  combine_funcs(test.wavedown(longinterval, gap),disaleButton(self.Button1_6b)))
 
         self.Button1_7b = tk.Button(top)
         self.Button1_7b.place(relx=0.167, rely=0.733-shiftvalbut*9, height=24, width=47)
@@ -489,7 +497,7 @@ class Toplevel1:
         self.Button1_7b.configure(highlightcolor="black")
         self.Button1_7b.configure(pady="0")
         self.Button1_7b.configure(text='''Fast''')
-        self.Button1_7b.configure(command = lambda: test.wavedown(shortinterval, gap))
+        self.Button1_7b.configure(command = lambda: combine_funcs(test.wavedown(shortinterval, gap),disaleButton(self.Button1_7b)))
 
         self.Button1_8 = tk.Button(top)
         self.Button1_8.place(relx=0.167, rely=0.822-shiftvalbut*10, height=24, width=47)
@@ -502,7 +510,7 @@ class Toplevel1:
         self.Button1_8.configure(highlightcolor="black")
         self.Button1_8.configure(pady="0")
         self.Button1_8.configure(text='''Slow''')
-        self.Button1_8.configure(command = lambda: test.waveup(longinterval, gap))
+        self.Button1_8.configure(command = lambda: combine_funcs(test.waveup(longinterval, gap),disaleButton(self.Button1_8)))
 
         self.Button1_9 = tk.Button(top)
         self.Button1_9.place(relx=0.167, rely=0.889-shiftvalbut*11, height=24, width=47)
@@ -515,7 +523,7 @@ class Toplevel1:
         self.Button1_9.configure(highlightcolor="black")
         self.Button1_9.configure(pady="0")
         self.Button1_9.configure(text='''Fast''')
-        self.Button1_9.configure(command = lambda: test.waveup(shortinterval, gap))
+        self.Button1_9.configure(command = lambda: combine_funcs(test.waveup(shortinterval, gap),disaleButton(self.Button1_9)))
         
         self.Button1_9d = tk.Button(top)
         self.Button1_9d.place(relx=0.167, rely=0.900+0.099-shiftvalbut*12, height=24, width=47)
@@ -528,7 +536,7 @@ class Toplevel1:
         self.Button1_9d.configure(highlightcolor="black")
         self.Button1_9d.configure(pady="0")
         self.Button1_9d.configure(text='''Slow''')
-        self.Button1_9d.configure(command = lambda: test.waveup(shortinterval, gap))
+        #self.Button1_9d.configure(command = lambda: test.waveup(shortinterval, gap))
         self.Button1_9de = tk.Button(top)
         self.Button1_9de.place(relx=0.167, rely=0.959+0.099-shiftvalbut*13, height=24, width=47)
         self.Button1_9de.configure(activebackground="#d9d9d9")
@@ -540,7 +548,7 @@ class Toplevel1:
         self.Button1_9de.configure(highlightcolor="black")
         self.Button1_9de.configure(pady="0")
         self.Button1_9de.configure(text='''Fast''')
-        self.Button1_9de.configure(command = lambda: test.waveup(shortinterval, gap))
+        #self.Button1_9de.configure(command = lambda: test.waveup(shortinterval, gap))
 
         self.Button1_10 = tk.Button(top)
         self.Button1_10.place(relx=0.617, rely=0.044, height=24, width=47)
@@ -553,7 +561,7 @@ class Toplevel1:
         self.Button1_10.configure(highlightcolor="black")
         self.Button1_10.configure(pady="0")
         self.Button1_10.configure(text='''Slow''')
-        self.Button1_10.configure(command = lambda: test.sixmotorburst(longinterval, gap))
+        self.Button1_10.configure(command = lambda: combine_funcs(test.sixmotorburst(longinterval, gap),disaleButton(self.Button1_10)))
 
         self.Button1_11 = tk.Button(top)
         self.Button1_11.place(relx=0.617, rely=0.111, height=24, width=47)
@@ -566,7 +574,7 @@ class Toplevel1:
         self.Button1_11.configure(highlightcolor="black")
         self.Button1_11.configure(pady="0")
         self.Button1_11.configure(text='''Fast''')
-        self.Button1_11.configure(command = lambda: test.sixmotorburst(shortinterval, gap))
+        self.Button1_11.configure(command = lambda: combine_funcs(test.sixmotorburst(shortinterval, gap),disaleButton(self.Button1_11)))
 
         self.Button1_12 = tk.Button(top)
         self.Button1_12.place(relx=0.617, rely=0.2, height=24, width=47)
@@ -579,7 +587,7 @@ class Toplevel1:
         self.Button1_12.configure(highlightcolor="black")
         self.Button1_12.configure(pady="0")
         self.Button1_12.configure(text='''Slow''')      
-        self.Button1_12.configure(command = lambda: test.spineup(longinterval, gap))
+        self.Button1_12.configure(command = lambda: combine_funcs(test.spineup(longinterval, gap),disaleButton(self.Button1_12)))
 
         self.Button1_13 = tk.Button(top)
         self.Button1_13.place(relx=0.617, rely=0.267, height=24, width=47)
@@ -592,7 +600,7 @@ class Toplevel1:
         self.Button1_13.configure(highlightcolor="black")
         self.Button1_13.configure(pady="0")
         self.Button1_13.configure(text='''Fast''')
-        self.Button1_13.configure(command = lambda: test.spineup(shortinterval, gap))
+        self.Button1_13.configure(command = lambda: combine_funcs(test.spineup(shortinterval, gap),disaleButton(self.Button1_13)))
 
         self.Button1_14 = tk.Button(top)
         self.Button1_14.place(relx=0.617, rely=0.356, height=24, width=47)
@@ -605,7 +613,7 @@ class Toplevel1:
         self.Button1_14.configure(highlightcolor="black")
         self.Button1_14.configure(pady="0")
         self.Button1_14.configure(text='''Slow''')   
-        self.Button1_14.configure(command = lambda: test.spinedown(longinterval, gap))
+        self.Button1_14.configure(command = lambda: combine_funcs(test.spinedown(longinterval, gap),disaleButton(self.Button1_14)))
 
         self.Button1_15 = tk.Button(top)
         self.Button1_15.place(relx=0.617, rely=0.422, height=24, width=47)
@@ -618,7 +626,7 @@ class Toplevel1:
         self.Button1_15.configure(highlightcolor="black")
         self.Button1_15.configure(pady="0")
         self.Button1_15.configure(text='''Fast''')   
-        self.Button1_15.configure(command = lambda: test.spinedown(shortinterval, gap))
+        self.Button1_15.configure(command = lambda: combine_funcs(test.spinedown(shortinterval, gap),disaleButton(self.Button1_15)))
 
         self.Button1_16 = tk.Button(top)
         self.Button1_16.place(relx=0.617, rely=0.511, height=24, width=47)
@@ -631,7 +639,7 @@ class Toplevel1:
         self.Button1_16.configure(highlightcolor="black")
         self.Button1_16.configure(pady="0")
         self.Button1_16.configure(text='''Slow''')   
-        self.Button1_16.configure(command = lambda: test.snakehorizontal(longinterval, gap))
+        self.Button1_16.configure(command = lambda: combine_funcs(test.snakehorizontal(longinterval, gap),disaleButton(self.Button1_16)))
 
         self.Button1_17 = tk.Button(top)
         self.Button1_17.place(relx=0.617, rely=0.567, height=24, width=47)
@@ -644,7 +652,7 @@ class Toplevel1:
         self.Button1_17.configure(highlightcolor="black")
         self.Button1_17.configure(pady="0")
         self.Button1_17.configure(text='''Fast''')   
-        self.Button1_17.configure(command = lambda: test.snakehorizontal(shortinterval, gap))
+        self.Button1_17.configure(command = lambda: combine_funcs(test.snakehorizontal(shortinterval, gap),disaleButton(self.Button1_17)))
 
         self.Button1_18 = tk.Button(top)
         self.Button1_18.place(relx=0.617, rely=0.667, height=24, width=47)
@@ -657,7 +665,7 @@ class Toplevel1:
         self.Button1_18.configure(highlightcolor="black")
         self.Button1_18.configure(pady="0")
         self.Button1_18.configure(text='''Slow''')   
-        self.Button1_18.configure(command = lambda: test.snakevertical(longinterval, gap))
+        self.Button1_18.configure(command = lambda: combine_funcs(test.snakevertical(longinterval, gap),disaleButton(self.Button1_18)))
 
         self.Button1_19 = tk.Button(top)
         self.Button1_19.place(relx=0.617, rely=0.733, height=24, width=47)
@@ -670,7 +678,7 @@ class Toplevel1:
         self.Button1_19.configure(highlightcolor="black")
         self.Button1_19.configure(pady="0")
         self.Button1_19.configure(text='''Fast''')   
-        self.Button1_19.configure(command = lambda: test.snakevertical(shortinterval, gap))
+        self.Button1_19.configure(command = lambda: combine_funcs(test.snakevertical(shortinterval, gap),disaleButton(self.Button1_19)))
 
         self.Button1_20 = tk.Button(top)
         self.Button1_20.place(relx=0.617, rely=0.822, height=24, width=47)
@@ -683,7 +691,7 @@ class Toplevel1:
         self.Button1_20.configure(highlightcolor="black")
         self.Button1_20.configure(pady="0")
         self.Button1_20.configure(text='''Slow''')
-        self.Button1_20.configure(command = lambda: test.shouldertap(longinterval, gap))
+        self.Button1_20.configure(command = lambda: combine_funcs(test.shouldertap(longinterval, gap),disaleButton(self.Button1_20)))
 
         self.Button1_21 = tk.Button(top)
         self.Button1_21.place(relx=0.617, rely=0.889, height=24, width=47)
@@ -696,7 +704,7 @@ class Toplevel1:
         self.Button1_21.configure(highlightcolor="black")
         self.Button1_21.configure(pady="0")
         self.Button1_21.configure(text='''Fast''')
-        self.Button1_21.configure(command = lambda: test.shouldertap(shortinterval, gap))
+        self.Button1_21.configure(command = lambda: combine_funcs(test.shouldertap(shortinterval, gap),disaleButton(self.Button1_21)))
 
         self.Label1 = tk.Label(top)
         self.Label1.place(relx=0.267, rely=0.0, height=21, width=34)

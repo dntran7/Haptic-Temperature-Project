@@ -50,7 +50,7 @@ def alternateleftright(pulsewidth,gap):
         time.sleep(pulsewidth)
         hap_disp.clear_display()
         time.sleep(gap)
-    time.sleep(5)
+    #time.sleep(5)
     
 def alternatetopbottom(pulsewidth,gap):
     for x in range(0,3):
@@ -72,7 +72,7 @@ def alternatetopbottom(pulsewidth,gap):
         time.sleep(pulsewidth)
         hap_disp.clear_display()
         time.sleep(gap)
-    time.sleep(5)
+    #time.sleep(5)
     
     
 def explode(pulsewidth,gap):
@@ -107,7 +107,7 @@ def explode(pulsewidth,gap):
     time.sleep(pulsewidth + 0.1) #arbitrary  value to emphasize on the explode pattern
     hap_disp.clear_display()
     time.sleep(gap)
-    time.sleep(5)
+    #time.sleep(5)
 
 def rain(pulsewidth,gap):
     image = np.zeros(dims, np.uint8)
@@ -146,7 +146,7 @@ def rain(pulsewidth,gap):
     time.sleep(pulsewidth)
     hap_disp.clear_display()
     time.sleep(gap)
-    time.sleep(5)
+    #time.sleep(5)
     
 def shouldertap(pulsewidth,gap):
     for x in range(0,3):
@@ -159,7 +159,7 @@ def shouldertap(pulsewidth,gap):
         time.sleep(pulsewidth)
         hap_disp.clear_display()
         time.sleep(gap)
-    time.sleep(5)
+    #time.sleep(5)
     
 def snakehorizontal(pulsewidth,gap):
     for r in range (0,3):
@@ -182,7 +182,7 @@ def snakehorizontal(pulsewidth,gap):
                 hap_disp.clear_display()
                 time.sleep(gap)
         
-    time.sleep(5)
+    #time.sleep(5)
 
 def snakevertical(pulsewidth,gap):
     for c in reversed(range (1,4)):
@@ -208,7 +208,7 @@ def snakevertical(pulsewidth,gap):
                 hap_disp.clear_display()
                 time.sleep(gap)
         
-    time.sleep(5)
+    #time.sleep(5)
 
 def sixmotorburst(pulsewidth,gap):
     for x in range(0,3):
@@ -223,7 +223,7 @@ def sixmotorburst(pulsewidth,gap):
         time.sleep(pulsewidth)
         hap_disp.clear_display()
         time.sleep(gap)
-    time.sleep(5)
+    #time.sleep(5)
 
 def spinedown(pulsewidth,gap):
     for x in range(0,4):
@@ -234,7 +234,7 @@ def spinedown(pulsewidth,gap):
         time.sleep(pulsewidth)
         hap_disp.clear_display()
         time.sleep(gap)
-    time.sleep(5)
+    #time.sleep(5)
     
 def spineup(pulsewidth,gap):
     for x in reversed(range(0,4)):
@@ -245,7 +245,7 @@ def spineup(pulsewidth,gap):
         time.sleep(pulsewidth)
         hap_disp.clear_display()
         time.sleep(gap)
-    time.sleep(5)
+    #time.sleep(5)
 
 def spiral(r,c,pulsewidth,gap):
     image = np.zeros(dims, np.uint8)
@@ -295,7 +295,7 @@ def spiralout(pulsewidth,gap):
     c=3
     spiral(r,c,pulsewidth,gap)
     
-    time.sleep(5)   
+    #time.sleep(5)   
 
 def spiralin(pulsewidth,gap):
     r=2
@@ -334,7 +334,7 @@ def spiralin(pulsewidth,gap):
     c=2
     spiral(r,c,pulsewidth,gap)
     
-    time.sleep(5)    
+    #time.sleep(5)    
     
 def waveleft(pulsewidth,gap):
     for c in range (0,4):
@@ -347,7 +347,7 @@ def waveleft(pulsewidth,gap):
         time.sleep(pulsewidth)
         hap_disp.clear_display()
         time.sleep(gap)
-    time.sleep(5)
+    #time.sleep(5)
     
 def waveright(pulsewidth,gap):
     for c in reversed(range (0,4)):
@@ -360,7 +360,7 @@ def waveright(pulsewidth,gap):
         time.sleep(pulsewidth)
         hap_disp.clear_display()
         time.sleep(gap)
-    time.sleep(5) 
+    #time.sleep(5) 
     
 def waveup(pulsewidth,gap):
     for r in reversed(range (0,4)):
@@ -373,7 +373,7 @@ def waveup(pulsewidth,gap):
         time.sleep(pulsewidth)
         hap_disp.clear_display()
         time.sleep(gap)
-    time.sleep(5)    
+    #time.sleep(5)    
     
 def wavedown(pulsewidth,gap):
     for r in range (0,4):
@@ -386,11 +386,11 @@ def wavedown(pulsewidth,gap):
         time.sleep(pulsewidth)
         hap_disp.clear_display()
         time.sleep(gap)
-    time.sleep(5)     
+    ###time.sleep(5)     
     
 
 #start
-'''time.sleep(5)
+'''#time.sleep(5)
 #wavedown(0.5)
 #waveup(0.2)
 alternateleftright(0.5)
