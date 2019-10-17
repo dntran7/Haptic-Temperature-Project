@@ -514,7 +514,9 @@ while(stringInput!="q"):
     else:
         print("command not recognized. try again\n")
     stringInput = str(input("type in next command:\n\tn for playing next pattern\n\tr for repeat\n\ti for inputting subject answers\n\tq for quit\n"))
-
+    if(stringInput=="q" and answerinputtedyet==False):
+        print("you have not inputted answer for the last pattern. please do so and exit.\n")
+        stringInput = "i"
 #finally print out all of the answers with the files
 print("Emotion\t\t\t\t\tFilePlayed\t\t\t\t\tUser Response\n")
 listpass = []
