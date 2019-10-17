@@ -363,12 +363,16 @@ def AU12(pulsewidth,gap):
     #time.sleep(5)
 
 def getListItem():
-    my_path_file_location = os.path.abspath(os.path.dirname(__file__))
-    path_file_location = os.path.join(my_path_file_location, "..\\file_list.csv")
+    #my_path_file_location = os.path.abspath(os.path.dirname(__file__))
+    #path_file_location = os.path.join(my_path_file_location, "..\\file_list.csv")
     #print(path_file_location)
-    path_file_location = "C:/Users/kuteb/source/repos/Haptic-Temperature-Project-new/file_list.csv"
+    
+    script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
+    rel_path = "file_list.csv"
+    abs_file_path = os.path.join(script_dir, rel_path)
+    #path_file_location = "C:/Users/kuteb/source/repos/Haptic-Temperature-Project-new/file_list.csv"
     #print(path_file_location)
-    with open(path_file_location) as csv_file:
+    with open(abs_file_path) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         i =0;
         for row in csv_reader:
@@ -433,15 +437,14 @@ def playNextPattern():
     answerinputtedyet=False;
     rand = random.randint(0,len(combinationlist)-1)
     filePlaying = combinationlist[rand].audiofile
-    my_path = os.path.abspath(os.path.dirname(__file__))
-    file_path = os.path.join(my_path, "../crema_45_new/audio/"+filePlaying)
-    file_path = ("C:/Users/kuteb/source/repos/Haptic-Temperature-Project-new/crema_45_new/audio/"+filePlaying)
-                
+    script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
+    rel_path = "crema_45_new/audio/"+filePlaying
+    abs_file_path = os.path.join(script_dir, rel_path)
     emotionPlaying = combinationlist[rand].emotion
     prevCombination = combination(emotionPlaying,filePlaying)
     mixer.init()
     print("playing file " +filePlaying+ "\n")
-    mixer.music.load(file_path)
+    mixer.music.load(abs_file_path)
     mixer.music.play()
     #playEmotion(emotionPlaying)
     combinationlist.remove(combinationlist[rand])
@@ -453,14 +456,12 @@ def repeatPrevPattern():
         return
     filePlaying = prevCombination.audiofile
     emotionPlaying = prevCombination.emotion
-    
-    my_path = os.path.abspath(os.path.dirname(__file__))
-    file_path = os.path.join(my_path, "../crema_45_new/audio/"+filePlaying)
-    file_path = ("C:/Users/kuteb/source/repos/Haptic-Temperature-Project-new/crema_45_new/audio/"+filePlaying)
-                
+    script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
+    rel_path = "crema_45_new/audio/"+filePlaying
+    abs_file_path = os.path.join(script_dir, rel_path)
     mixer.init()
     print("repeating emotion " + emotionPlaying+" with file " +filePlaying+ "\n")
-    mixer.music.load(file_path)
+    mixer.music.load(abs_file_path)
     mixer.music.play()
     #playEmotion(emotionPlaying)
 
