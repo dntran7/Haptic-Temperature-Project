@@ -21,7 +21,7 @@ def serial_ports():
             ports = glob.glob('/dev/tty.*')
         else:
             raise EnvironmentError('Unsupported platform')
- 
+
         result = []
         for port in ports:
             try:
@@ -34,6 +34,7 @@ def serial_ports():
     
 def find_comm_port():
         comm_port = []
+        print(os.name)
         if os.name == 'posix':
             comm_port = glob.glob('/dev/tty.*')
             comm_port.extend( glob.glob('/dev/ttyACM*'))
@@ -285,7 +286,7 @@ class lrhd():
         print('Sending Image to Hardware: ')
         for x in range(self.x_dim):
             for y in range(self.y_dim):
-                print('Sending: ', str(x), str(y), str(int(hw_img_scaled[x,y])))
+                #print('Sending: ', str(x), str(y), str(int(hw_img_scaled[x,y])))
                 if(not self.lock.locked()):
                     self.lock.acquire()
                     try:
